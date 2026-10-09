@@ -1,0 +1,51 @@
+{
+  "name": "rankeo-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Motores de torneos, horarios y ligas de padel en TypeScript.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tournaments": {
+      "types": "./dist/bracket-engine/index.d.ts",
+      "import": "./dist/bracket-engine/index.js"
+    },
+    "./scheduling": {
+      "types": "./dist/schedule-engine/index.d.ts",
+      "import": "./dist/schedule-engine/index.js"
+    },
+    "./leagues": {
+      "types": "./dist/league-engine/index.d.ts",
+      "import": "./dist/league-engine/index.js"
+    },
+    "./schedule-validation": {
+      "types": "./dist/schedule-validator.d.ts",
+      "import": "./dist/schedule-validator.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:demo": "vitest run -t \"\\[demo\\]\"",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.39",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}
